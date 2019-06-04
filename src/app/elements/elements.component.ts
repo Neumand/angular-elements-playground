@@ -18,6 +18,7 @@ export class ElementsComponent implements OnInit {
     'Episode VI - Return of the Jedi',
     'Episode VII - The Force Awakens',
     'Episode VIII - The Last Jedi',
+    'Episode IX - The Rise of Skywalker',
   ];
 
   drop(event: CdkDragDrop<string[]>) {
