@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --output-hashing=none",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "package:win": "jscat ./dist/elementsApp/runtime-es2015.js ./dist/elementsApp/polyfills-es2015.js ./dist/elementsApp/main-es2015.js >../angular-elements/elements.js"
   },
   "private": true,
   "dependencies": {
@@ -15,10 +16,13 @@
     "@angular/common": "~8.0.0",
     "@angular/compiler": "~8.0.0",
     "@angular/core": "~8.0.0",
+    "@angular/elements": "^8.0.0",
     "@angular/forms": "~8.0.0",
     "@angular/platform-browser": "~8.0.0",
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.2.1",
+    "jscat": "0.0.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
