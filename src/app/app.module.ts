@@ -10,15 +10,20 @@ import {
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbDatepickerModule,
+  NgbModalModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { ElementsComponent } from './elements/elements.component';
+import { HelloWorldComponent } from './hello-world/hello-world.component';
 
 @NgModule({
-  declarations: [ElementsComponent],
+  declarations: [ElementsComponent, HelloWorldComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NgbModule,
+    NgbModalModule,
+    NgbDatepickerModule,
     MatButtonModule,
     MatCheckboxModule,
     MatToolbarModule,
@@ -28,15 +33,21 @@ import { ElementsComponent } from './elements/elements.component';
   ],
   providers: [],
   // Add entryComponents and insert the custom elements components here
-  entryComponents: [ElementsComponent],
+  entryComponents: [ElementsComponent, HelloWorldComponent],
 })
 export class AppModule {
-  constructor(private injector: Injector) {}
-  // Custom elements must be bootstrapped manually
-  ngDoBootstrap() {
-    const element = createCustomElement(ElementsComponent, {
+  constructor(private injector: Injector) {
+    const el = createCustomElement(ElementsComponent, {
       injector: this.injector,
     });
-    customElements.define('elements-component', element);
+    customElements.define('elements-component', el);
+
+    const el2 = createCustomElement(HelloWorldComponent, {
+      injector: this.injector,
+    });
+    customElements.define('hello-world-component', el2);
   }
+
+  // Custom elements must be bootstrapped manually
+  ngDoBootstrap() {}
 }

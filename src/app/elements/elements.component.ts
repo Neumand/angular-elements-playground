@@ -1,11 +1,11 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'elements-component',
   templateUrl: './elements.component.html',
-  styleUrls: ['./elements.component.css'],
+  styleUrls: ['./elements.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class ElementsComponent implements OnInit {
   closeResult: string;
